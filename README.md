@@ -1,59 +1,75 @@
 # RepoMusic
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.7.
+<!-- Sugestão: Tire um print da sua tela e substitua este link -->
 
-## Development server
+## 🎵 Sobre o Projeto
 
-To start a local development server, run:
+RepoMusic é uma aplicação web para busca de informações sobre artistas e suas músicas, construída com as tecnologias mais recentes do ecossistema Angular. O projeto foi desenvolvido como uma Single Page Application (SPA) e consome a API pública TheAudioDB para obter os dados.
 
-```bash
-ng serve
-```
+A interface possui um design moderno e responsivo, com um tema escuro inspirado em plataformas como GitHub e Spotify.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## ✨ Funcionalidades
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+-   **Autenticação de Usuário**: Sistema de login simples para acesso à aplicação.
+-   **Busca de Artistas em Tempo Real**: Campo de busca na página inicial que consulta a API e exibe os resultados instantaneamente conforme o usuário digita.
+-   **Histórico de Buscas**: Os artistas visitados são salvos no `localStorage` e exibidos na tela inicial para acesso rápido, persistindo entre as sessões.
+-   **Página de Detalhes do Artista**: Exibe biografia (priorizando o português quando disponível), discografia completa e as músicas mais populares.
+-   **Página de Detalhes do Álbum**: Mostra a capa, ano de lançamento e descrição do álbum (também priorizando o português).
+-   **Navegação Intuitiva**: Roteamento completo entre todas as páginas da aplicação.
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🚀 Tecnologias Utilizadas
 
-```bash
-ng generate --help
-```
+-   **Angular (v20)**: Framework principal para a construção da interface.
+-   **Componentes Standalone**: Arquitetura moderna do Angular para componentes mais modulares e independentes.
+-   **TypeScript**: Superset do JavaScript que adiciona tipagem estática e melhora a manutenibilidade do código.
+-   **RxJS**: Para gerenciamento de eventos e programação reativa, especialmente na funcionalidade de busca em tempo real com `debounceTime` e `switchMap`.
+-   **SCSS**: Pré-processador CSS para uma estilização mais organizada, aninhada e poderosa.
+-   **API TheAudioDB**: Fonte de todos os dados sobre artistas, álbuns e músicas.
 
-## Building
+---
 
-To build the project run:
+## ⚙️ Como Executar o Projeto
 
-```bash
-ng build
-```
+Siga os passos abaixo para rodar o RepoMusic em seu ambiente de desenvolvimento.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Pré-requisitos
 
-## Running unit tests
+-   Node.js (versão 18.x ou superior)
+-   Angular CLI (v20 ou superior)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Instalação e Execução
 
-```bash
-ng test
-```
+1.  Clone o repositório para sua máquina local:
+    ```bash
+    git clone https://github.com/Felipe-JLima/RepoMusic.git
+    ```
+2.  Navegue até o diretório do projeto:
+    ```bash
+    cd RepoMusic
+    ```
+3.  Instale as dependências do projeto:
+    ```bash
+    npm install
+    ```
+4.  Inicie o servidor de desenvolvimento do Angular. O projeto já está configurado para usar um proxy (`proxy.conf.json`) que redireciona as chamadas para a API do TheAudioDB, evitando problemas com CORS.
+    ```bash
+    ng serve
+    ```
+5.  Abra seu navegador e acesse `http://localhost:4200`.
+    Ou use o `ng serve -o` para abrir automaticamente o navegador.
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
 
-```bash
-ng e2e
-```
+### Credenciais para Login
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Para fins de demonstração, utilize as seguintes credenciais para acessar a aplicação:
 
-## Additional Resources
+-   **Email**: `felipe@repomusic.com`
+-   **Senha**: `123456`
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
