@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { AlbumResponse, Music, TrackResponse } from '../home/music';
+import { Album, Artist, Music, Track } from '../home/music';
 import { Observable, of } from 'rxjs';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
@@ -13,9 +13,9 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './artist-detail.scss',
 })
 export class ArtistDetail {
-  artist$: Observable<any>;
-  albums$: Observable<AlbumResponse['album']>;
-  topTracks$: Observable<TrackResponse['track']>;
+  artist$: Observable<Artist | null>;
+  albums$: Observable<Album[] | null>;
+  topTracks$: Observable<Track[] | null>;
 
   constructor(private route: ActivatedRoute, private musicService: Music) {
     this.artist$ = this.route.paramMap.pipe(

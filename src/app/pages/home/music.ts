@@ -2,19 +2,46 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-// Interface simples para a resposta da API de artistas
+// --- Interfaces de Modelo ---
+export interface Artist {
+  idArtist: string;
+  strArtist: string;
+  strArtistThumb?: string;
+  strArtistFanart?: string;
+  strGenre?: string;
+  strBiographyEN?: string;
+  strBiographyPT?: string;
+}
+
+export interface Album {
+  idAlbum: string;
+  idArtist: string;
+  strAlbum: string;
+  strArtist: string;
+  intYearReleased: string;
+  strAlbumThumb?: string;
+  strDescriptionEN?: string;
+  strDescriptionPT?: string;
+}
+
+export interface Track {
+  idTrack: string;
+  strTrack: string;
+  strAlbum: string;
+  strMusicVid?: string;
+}
+
+// --- Interfaces de Resposta da API ---
 export interface ArtistResponse {
-  artists: any[] | null; // A API retorna null se nenhum artista for encontrado
+  artists: Artist[] | null;
 }
 
-// Interface para a resposta da API de álbuns
 export interface AlbumResponse {
-  album: any[] | null;
+  album: Album[] | null;
 }
 
-// Interface para a resposta da API de faixas
 export interface TrackResponse {
-  track: any[] | null;
+  track: Track[] | null;
 }
 
 @Injectable({

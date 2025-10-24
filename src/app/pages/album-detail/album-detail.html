@@ -8,7 +8,7 @@
         <div class="album-meta">
           <h1>{{ album.strAlbum }}</h1>
           <h2>por {{ album.strArtist }} ({{ album.intYearReleased }})</h2>
-          <p class="album-description">{{ album.strDescriptionEN }}</p>
+          <p class="album-description">{{ album.strDescriptionPT || album.strDescriptionEN || 'Descrição não disponível.' }}</p>
         </div>
       </div>
 

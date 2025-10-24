@@ -8,23 +8,52 @@
     <input type="text" [formControl]="searchControl" placeholder="Busque por seu artista favorito..." />
   </div>
 
-  <div class="results-container">
-    @if (artists$ | async; as artists) {
-      @if (artists && artists.length > 0) {
-        <div class="artist-grid">
-          @for (artist of artists; track artist.idArtist) {
-            <a class="artist-card" [routerLink]="['/artist', artist.idArtist]">
-              <img [src]="artist.strArtistThumb ? (artist.strArtistThumb + '/preview') : 'https://via.placeholder.com/100x100.png?text=No+Image'" [alt]="artist.strArtist">
-              <div class="artist-info">
-                <strong>{{ artist.strArtist }}</strong>
-                <span>{{ artist.strGenre || 'Gênero desconhecido' }}</span>
-              </div>
-            </a>
-          }
+  <!-- Seção de Resultados da Busca -->
+  @if (isSearching$ | async) {
+    <div class="search-results-section">
+      <h2>Resultados da Busca</h2>
+      @if (artists$ | async; as artists) {
+        @if (artists && artists.length > 0) {
+          <div class="artist-grid">
+            @for (artist of artists; track artist.idArtist) {
+              <a class="artist-card" (click)="viewArtist(artist)">
+                <img [src]="artist.strArtistThumb ? (artist.strArtistThumb + '/preview') : 'https://via.placeholder.com/100x100.png?text=No+Image'" [alt]="artist.strArtist">
+                <div class="artist-info">
+                  <strong>{{ artist.strArtist }}</strong>
+                  <span>{{ artist.strGenre || 'Gênero desconhecido' }}</span>
+                </div>
+              </a>
+            }
+          </div>
+        } @else {
+          <p class="no-results">Nenhum artista encontrado para a sua busca.</p>
+        }
+      }
+    </div>
+  } @else {
+    <!-- Seção de Histórico -->
+    @if (searchHistory$ | async; as history) {
+      @if (history.length > 0) {
+        <div class="history-section">
+          <div class="history-header">
+            <h2>Pesquisados Recentemente</h2>
+            <button (click)="clearHistory()">Limpar Histórico</button>
+          </div>
+          <div class="artist-grid">
+            @for (artist of history; track artist.idArtist) {
+              <a class="artist-card" (click)="viewArtist(artist)">
+                <img [src]="artist.strArtistThumb ? (artist.strArtistThumb + '/preview') : 'https://via.placeholder.com/100x100.png?text=No+Image'" [alt]="artist.strArtist">
+                <div class="artist-info">
+                  <strong>{{ artist.strArtist }}</strong>
+                  <span>{{ artist.strGenre || 'Gênero desconhecido' }}</span>
+                </div>
+              </a>
+            }
+          </div>
         </div>
       } @else {
-        <p class="no-results">Nenhum artista encontrado para a sua busca.</p>
+        <p class="empty-state-message">Seu histórico de buscas aparecerá aqui.</p>
       }
     }
-  </div>
+  }
 </div>

@@ -15,7 +15,7 @@
 
       <div class="artist-content">
         <h2>Biografia</h2>
-        <p class="biography">{{ artist.strBiographyEN || 'Biografia não disponível.' }}</p>
+        <p class="biography">{{ artist.strBiographyPT || artist.strBiographyEN || 'Biografia não disponível.' }}</p>
 
         @if (albums$ | async; as albums) {
           @if (albums && albums.length > 0) {
