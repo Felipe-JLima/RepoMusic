@@ -1,0 +1,185 @@
+.detail-container {
+  width: 100%;
+  background-color: #1c2128;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  overflow: hidden; // To contain the rounded corners with the image
+  margin-bottom: 50px;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 20px;
+  color: #8b949e;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    color: #e6edf3;
+  }
+}
+
+.artist-header {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  color: white;
+
+  .artist-fanart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // Cover the whole area
+    z-index: 1;
+  }
+
+  .header-overlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+
+    h1 {
+      margin: 0;
+      font-size: 48px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .genre {
+      margin: 5px 0 0;
+      font-size: 18px;
+      font-style: italic;
+      color: #aab3bc;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+  }
+}
+
+.artist-content {
+  padding: 30px;
+
+  h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  .biography {
+    line-height: 1.6;
+    color: #b1bac4;
+    white-space: pre-wrap; // Preserves line breaks from the API response
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+  color: #8b949e;
+}
+
+.discography-section {
+  margin-top: 40px;
+
+  h2 {
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 25px;
+}
+
+.album-card {
+  background-color: #0d1117;
+  border-radius: 6px;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  color: #e6edf3;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .album-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+  }
+}
+
+.top-tracks-section {
+  margin-top: 40px;
+
+  h2 {
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+}
+
+.track-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.track-item {
+  background-color: #0d1117;
+  padding: 15px 20px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+
+  .track-title {
+    font-weight: bold;
+    flex-grow: 1;
+  }
+
+  .track-album {
+    color: #8b949e;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .youtube-link {
+    background-color: #c4302b;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,19 @@
+@if (album$ | async; as album) {
+  @if (album) {
+    <div class="album-detail-container">
+      <a [routerLink]="['/artist', album.idArtist]" class="back-link">&lt; Voltar para o artista</a>
+
+      <div class="album-info-header">
+        <img [src]="album.strAlbumThumb ? album.strAlbumThumb : 'https://via.placeholder.com/300x300.png?text=No+Cover'" [alt]="album.strAlbum" class="album-cover">
+        <div class="album-meta">
+          <h1>{{ album.strAlbum }}</h1>
+          <h2>por {{ album.strArtist }} ({{ album.intYearReleased }})</h2>
+          <p class="album-description">{{ album.strDescriptionEN }}</p>
+        </div>
+      </div>
+
+    </div>
+  }
+} @else {
+  <div class="loading-spinner"></div>
+}

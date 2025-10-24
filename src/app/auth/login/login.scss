@@ -1,0 +1,101 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+form {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  background: #1c2128; /* Fundo do card um pouco mais claro */
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #30363d;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  h2 {
+    text-align: center;
+    color: #e6edf3;
+    margin: 0 0 10px;
+    font-size: 28px;
+    font-weight: 600;
+    /* Efeito de gradiente para a logo */
+    background: linear-gradient(to right, #8250df, #4a90e2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #8b949e; /* Cor de texto secundária */
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #8b949e;
+  }
+
+  input {
+    padding: 12px 15px;
+    border: 1px solid #30363d; /* Borda do input */
+    background-color: #0d1117; /* Fundo do input */
+    color: #e6edf3; /* Cor do texto do input */
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+
+    &:focus {
+      outline: none;
+      border-color: #8250df; /* Cor de foco roxa */
+      box-shadow: 0 0 0 3px rgba(130, 80, 223, 0.2);
+    }
+  }
+
+  button {
+    padding: 12px 15px;
+    background-color: #8250df; /* Cor roxa principal */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+
+    &:hover {
+      background-color: #9965f4; /* Roxo mais claro no hover */
+    }
+  }
+
+  .error-message {
+    color: #f85149;
+    font-size: 12px;
+    margin-top: -15px;
+    margin-bottom: 5px;
+  }
+
+  input.ng-invalid.ng-touched {
+    border-color: #f85149;
+  }
+
+  button:disabled {
+    background-color: #586069;
+    cursor: not-allowed;
+  }
+}

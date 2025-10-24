@@ -1,0 +1,116 @@
+.home-container {
+  width: 100%;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #30363d;
+  margin-bottom: 30px;
+
+  .logo {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    background: linear-gradient(to right, #8250df, #4a90e2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  button {
+    background-color: transparent;
+    color: #8b949e;
+    border: 1px solid #30363d;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: #30363d;
+      color: #e6edf3;
+    }
+  }
+}
+
+.search-box {
+  margin-bottom: 40px;
+
+  input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 18px;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    color: #e6edf3;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-color: #8250df;
+      box-shadow: 0 0 0 3px rgba(130, 80, 223, 0.2);
+    }
+  }
+}
+
+.artist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.artist-card {
+  background-color: #1c2128;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #e6edf3;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border-color: #8250df;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    background-color: #30363d;
+  }
+
+  .artist-info {
+    display: flex;
+    flex-direction: column;
+
+    strong {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    span {
+      font-size: 12px;
+      color: #8b949e;
+    }
+  }
+}
+
+.no-results {
+  text-align: center;
+  color: #8b949e;
+  margin-top: 50px;
+}

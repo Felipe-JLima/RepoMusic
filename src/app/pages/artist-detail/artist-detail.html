@@ -1,0 +1,59 @@
+@if (artist$ | async; as artist) {
+  @if (artist) {
+    <div class="detail-container">
+      <a routerLink="/home" class="back-link">&lt; Voltar para a busca</a>
+
+      <div class="artist-header">
+        @if (artist.strArtistFanart) {
+          <img class="artist-fanart" [src]="artist.strArtistFanart" [alt]="artist.strArtist" />
+        }
+        <div class="header-overlay">
+          <h1>{{ artist.strArtist }}</h1>
+          <p class="genre">{{ artist.strGenre }}</p>
+        </div>
+      </div>
+
+      <div class="artist-content">
+        <h2>Biografia</h2>
+        <p class="biography">{{ artist.strBiographyEN || 'Biografia não disponível.' }}</p>
+
+        @if (albums$ | async; as albums) {
+          @if (albums && albums.length > 0) {
+            <div class="discography-section">
+              <h2>Discografia</h2>
+              <div class="album-grid">
+                @for (album of albums; track album.idAlbum) {
+                  <a class="album-card" [routerLink]="['/album', album.idAlbum]">
+                    <img [src]="album.strAlbumThumb ? album.strAlbumThumb + '/preview' : 'https://via.placeholder.com/150x150.png?text=No+Cover'" [alt]="album.strAlbum">
+                    <p class="album-title">{{ album.strAlbum }} ({{ album.intYearReleased }})</p>
+                  </a>
+                }
+              </div>
+            </div>
+          }
+        }
+
+        @if (topTracks$ | async; as tracks) {
+          @if (tracks && tracks.length > 0) {
+            <div class="top-tracks-section">
+              <h2>Músicas Populares</h2>
+              <ul class="track-list">
+                @for (track of tracks; track track.idTrack) {
+                  <li class="track-item">
+                    <span class="track-title">{{ track.strTrack }}</span>
+                    <span class="track-album">Álbum: {{ track.strAlbum }}</span>
+                    @if (track.strMusicVid) {
+                      <a [href]="track.strMusicVid" target="_blank" class="youtube-link">Assistir no YouTube</a>
+                    }
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+        }
+      </div>
+    </div>
+  }
+} @else {
+  <div class="loading-spinner"></div>
+}

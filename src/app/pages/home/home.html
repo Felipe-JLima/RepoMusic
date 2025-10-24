@@ -1,0 +1,30 @@
+<div class="home-container">
+  <header class="home-header">
+    <h1 class="logo">RepoMusic</h1>
+    <button (click)="logout()">Sair</button>
+  </header>
+
+  <div class="search-box">
+    <input type="text" [formControl]="searchControl" placeholder="Busque por seu artista favorito..." />
+  </div>
+
+  <div class="results-container">
+    @if (artists$ | async; as artists) {
+      @if (artists && artists.length > 0) {
+        <div class="artist-grid">
+          @for (artist of artists; track artist.idArtist) {
+            <a class="artist-card" [routerLink]="['/artist', artist.idArtist]">
+              <img [src]="artist.strArtistThumb ? (artist.strArtistThumb + '/preview') : 'https://via.placeholder.com/100x100.png?text=No+Image'" [alt]="artist.strArtist">
+              <div class="artist-info">
+                <strong>{{ artist.strArtist }}</strong>
+                <span>{{ artist.strGenre || 'Gênero desconhecido' }}</span>
+              </div>
+            </a>
+          }
+        </div>
+      } @else {
+        <p class="no-results">Nenhum artista encontrado para a sua busca.</p>
+      }
+    }
+  </div>
+</div>
