@@ -55,9 +55,9 @@ Siga os passos abaixo para rodar o RepoMusic em seu ambiente de desenvolvimento.
     ```bash
     npm install
     ```
-4.  Inicie o servidor de desenvolvimento do Angular. O projeto já está configurado para usar um proxy (`proxy.conf.json`) que redireciona as chamadas para a API do TheAudioDB, evitando problemas com CORS.
+4.  Inicie o servidor de desenvolvimento do Angular com a configuração de proxy:
     ```bash
-    ng serve
+    ng serve --proxy-config proxy.conf.json
     ```
 5.  Abra seu navegador e acesse `http://localhost:4200`.
     Ou use o `ng serve -o` para abrir automaticamente o navegador.
