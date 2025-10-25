@@ -59,8 +59,7 @@ Siga os passos abaixo para rodar o RepoMusic em seu ambiente de desenvolvimento.
     ```bash
     ng serve --proxy-config proxy.conf.json
     ```
-5.  Abra seu navegador e acesse `http://localhost:4200`.
-    Ou use o `ng serve -o` para abrir automaticamente o navegador.
+5.  Abra seu navegador e acesse `http://localhost:4200`
 
 ---
 
